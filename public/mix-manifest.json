@@ -1,0 +1,12 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/dashboard.css": "/css/dashboard.css",
+    "/css/fontawesome.css": "/css/fontawesome.css",
+    "/css/dataTables.bootstrap4.min.css": "/css/dataTables.bootstrap4.min.css",
+    "/css/fullcalendar.min.css": "/css/fullcalendar.min.css",
+    "/css/fullcalendar.print.min.css": "/css/fullcalendar.print.min.css",
+    "/js/fullcalendar.min.js": "/js/fullcalendar.min.js",
+    "/js/moment.min.js": "/js/moment.min.js",
+    "/js/bootstrap-notify.min.js": "/js/bootstrap-notify.min.js"
+}
