@@ -21,8 +21,10 @@ Route::get('community','DashboardController@dashboard')->name('communityboard');
 Route::get('shift/request','DashboardController@shiftrequest')->name('shiftrequest');
 Route::get('shift/{id}','DashboardController@viewShift');
 
+
 /*All Post*/
 Route::post('shift/request','ApiController@addShift');
+Route::post('shift/pickup','ApiController@pickupShift');
 
 
 /*
