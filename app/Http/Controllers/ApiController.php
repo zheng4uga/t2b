@@ -37,7 +37,7 @@ class ApiController extends Controller {
          if($shift->requestMember->member_type == $user->member_type 
                  || $user->member_type == 3){
             // this mean if the user is flex or it match the same user type as request member
-             $allocatedHour = $user->allocated_hour;
+             $allocatedHour = $user->allocated_hours;
              if($allocatedHour < 40){
                  $allowedSave=true;
              }else{
@@ -54,6 +54,8 @@ class ApiController extends Controller {
             }else{
                 return ['status'=>'failed','message'=>$errorMessage];
             }
+         }else{
+                return ['status'=>'failed','message'=>$errorMessage];
          }
     }
 
