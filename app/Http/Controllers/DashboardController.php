@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 use App\CommunityBoard;
 use App\ShiftRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Store as Store;
 /**
  * Description of DashboardController
  *
@@ -22,11 +24,20 @@ class DashboardController extends Controller {
         $this->middleware('auth');
     }
     
-    public function index(){
-        return view('dashboard');
+    public function index($id = null){
+        $storeId = empty($id)?Auth::user()->memberStore->id:$id;
+        $data = array('displayStores'=>$this->getDisplayStores($id),'storeId'=>$storeId);
+        return view('dashboard',$data);
     }
     
-    public function dashboard(){
+    private function getDisplayStores($id = null){
+         $storeId = empty($id)?Auth::user()->memberStore->id:$id;
+        return Store::where('id','!=',$storeId)->get();
+    }
+
+
+    public function community(){
+        
         return view('communityboard',['boards'=> CommunityBoard::all()]);
     }
     

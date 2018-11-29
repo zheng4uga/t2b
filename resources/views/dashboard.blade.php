@@ -7,11 +7,12 @@
     <script src="{{url('js/sb-admin.min.js')}}" ></script>
     <script src="{{url('js/fullcalendar.min.js')}}" ></script>
     <script>
-        $(document).ready(function(){
-            $('#shiftCalendar').fullCalendar({
+        var $calendar = $('#shiftCalendar');
+        var eventApiUri = "{{url('api/allshifts')}}";
+        var calendarOpts = {
                 themeSystem: 'bootstrap4',
                 header: {
-                  left: 'prev,next today',
+                  left: 'prev,next',
                   center: 'title',
                   right: 'month,agendaWeek'
                 },
@@ -28,9 +29,19 @@
                 },
                 defaultView: $(window).width() < 765 ? 'listDay':'month',
                 eventLimit: true, // allow "more" link when too many events
-                events: "{{url('api/allshifts')}}"
+                events: eventApiUri+"?store=" + "{{$storeId}}"
       
+            };
+        $(document).ready(function(){
+            $calendar.fullCalendar(calendarOpts);
+            /*
+            $('.store-item-dropdown').click(function(){
+               var storeId = $(this).data('storeId');
+               $calendar.fullCalendar('destroy');
+               calendarOpts.events = eventApiUri+"?store="+storeId;
+               $calendar.fullCalendar(calendarOpts);
             });
+            */
         });
     </script>
 @endsection

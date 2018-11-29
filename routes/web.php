@@ -16,8 +16,8 @@ Route::get('api/allshifts','ApiController@shiftRequests');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
 Auth::routes();
-Route::get('dashboard','DashboardController@index')->name('dashboard');
-Route::get('community','DashboardController@dashboard')->name('communityboard');
+Route::get('dashboard/{id?}','DashboardController@index')->name('dashboard');
+Route::get('community','DashboardController@community')->name('communityboard');
 Route::get('shift/request','DashboardController@shiftrequest')->name('shiftrequest');
 Route::get('shift/{id}','DashboardController@viewShift');
 

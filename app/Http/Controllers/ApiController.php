@@ -25,8 +25,15 @@ class ApiController extends Controller {
     }
     //put your code here
     
-    public function shiftRequests(){
-        return ShiftRequest::with('requestMember')->with('assignedMember')->where('status','=','PENDING')->get()->toJson();
+    public function shiftRequests(Request $request){
+        $id = $request->get('store');
+        $shiftRequest= ShiftRequest::with('requestMember')->
+                with('assignedMember')->
+                where('status','=','PENDING');
+        if(!empty($id)){
+            $shiftRequest->where('store','=',$id);
+        }
+        return $shiftRequest->get()->toJson();
     }
     
     private function savePickupShift($jobRequestId){

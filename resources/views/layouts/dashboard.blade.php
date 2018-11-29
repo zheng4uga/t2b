@@ -16,7 +16,7 @@
     <body>
            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-            <a class="navbar-brand mr-1" href="{{url('/')}}">T2B Enterprise</a>
+            <a class="navbar-brand mr-1" href="{{url('/')}}">T2B</a>
 
             <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
               <i class="fas fa-bars"></i>
@@ -48,6 +48,19 @@
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li>
+              @if(!empty($displayStores) && count($displayStores) > 0 )
+               <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-street-view" aria-hidden="true"></i> {{\App\Store::find($storeId)->nickname}}
+                  </a>
+                
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+                      @foreach($displayStores as $store )
+                      <a class="dropdown-item store-item-dropdown" href="{{url('/dashboard').'/'.$store->id}}">{{$store->nickname}} <i class="ml-1 fa fa-chevron-right"></i></a>
+                      @endforeach
+                    </div>
+                </li>
+                 @endif
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user-circle fa-fw"></i>
@@ -79,18 +92,6 @@
                   <i class="fas fa-fw fa-comments"></i>
                   <span>Community Board</span></a>
               </li>
-              <!--
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="calendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-fw fa-calendar"></i>
-                  <span>Calender</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="calendarDropdown">
-                  <a class="dropdown-item" href="login.html">Request Shift Pickup</a>
-                  <a class="dropdown-item" href="register.html">Register</a>
-                </div>
-              </li>
-              -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="employeeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-fw fa-users"></i>

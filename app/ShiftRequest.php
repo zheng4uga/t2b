@@ -19,7 +19,7 @@ class ShiftRequest extends Model {
     
     protected $table = 'shift_request';
     
-    protected $fillable = ['id','start','end','status','title','assigned_member','request_member'];
+    protected $fillable = ['id','start','end','status','title','assigned_member','request_member','store'];
     
     protected $appends = ['url','encodedMapAddress'];
     protected $casts =[
