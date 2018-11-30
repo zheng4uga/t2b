@@ -25,7 +25,7 @@
             <!-- Navbar Search -->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                <input type="text" id="employeeSearch" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fas fa-search"></i>
@@ -162,6 +162,16 @@
         <script src="{{url('js/moment.min.js')}}" ></script>
         <script src="{{ url('js/app.js')}}" ></script>
         <script src="{{url('js/bootstrap-notify.min.js')}}" ></script>
+        <script src="{{url('js/bootstrap3-typeahead.min.js')}}"></script>
+        <script>
+            $(function(){
+             var  $input = $('#employeeSearch'); 
+             
+            $input.typeahead({source:[{id: "someId1", name: "Display name 1"}, 
+			{id: "someId2", name: "Display name 2"}], 
+			autoSelect: true});
+                });
+        </script>
         @yield('section-js')
     </body>
 </html>

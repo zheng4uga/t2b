@@ -8,5 +8,6 @@
     "/css/fullcalendar.print.min.css": "/css/fullcalendar.print.min.css",
     "/js/fullcalendar.min.js": "/js/fullcalendar.min.js",
     "/js/moment.min.js": "/js/moment.min.js",
-    "/js/bootstrap-notify.min.js": "/js/bootstrap-notify.min.js"
+    "/js/bootstrap-notify.min.js": "/js/bootstrap-notify.min.js",
+    "/js/bootstrap3-typeahead.min.js": "/js/bootstrap3-typeahead.min.js"
 }

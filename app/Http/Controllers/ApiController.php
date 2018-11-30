@@ -12,6 +12,7 @@ use App\ShiftRequest as ShiftRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\User as User;
 
 /**
  * Description of ApiController
@@ -76,6 +77,14 @@ class ApiController extends Controller {
             }else{
                return response()->json(['status'=>'failed','message'=>'Your request cannot be processed. Please contact your manager']);
             }
+        }else{
+            abort(403, 'Unauthorized action.');
+        }
+    }
+    
+    public function allEmployees(Request $request){
+        if(Auth::check() && $request->isMethod("get")){
+            return User::all()->toJson();
         }else{
             abort(403, 'Unauthorized action.');
         }

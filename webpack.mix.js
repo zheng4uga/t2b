@@ -27,3 +27,4 @@ mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts','public/webfonts'
 mix.copy('node_modules/fullcalendar/dist/fullcalendar.min.js','public/js');
 mix.copy('node_modules/moment/min/moment.min.js','public/js');
 mix.copy('node_modules/bootstrap4-notify/bootstrap-notify.min.js','public/js');
+mix.copy('node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.min.js','public/js');
